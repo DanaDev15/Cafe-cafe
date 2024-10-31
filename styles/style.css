@@ -116,7 +116,7 @@ header{
 #hero-banner{
     height: 90%;
     width: 100%;
-    background-image: url("/images/serving.png");
+    background-image: url("../images/serving.png");
     position: right;
     background-position: right;
     background-repeat: no-repeat;
@@ -236,7 +236,7 @@ img{
 
 .reviews-main-image{
     grid-row: 1 / span 4;
-    background-image: url("/images/handsincup.png");
+    background-image: url("../images/handsincup.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--cream);
