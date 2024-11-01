@@ -108,7 +108,7 @@ header{
 }
 
 #top-nav li a:hover{
-    text-decoration: underline;
+    text-decoration-line: underline;
     color: var(--medium);
 }
 
@@ -321,6 +321,7 @@ img{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 0;
 }
 
 #contacto figure{
@@ -337,6 +338,7 @@ img{
 #contacto h2{
     color: var(--cream);
     padding: 10px 0;
+    text-align: center;
 }
 
 input{
@@ -366,6 +368,7 @@ input[type="submit"] {
     font-size: 16px;
     width: 30vw;
     padding: 8px;
+    margin-top: 10px;
 }
 
 input[type="submit"]:hover{
@@ -374,3 +377,63 @@ input[type="submit"]:hover{
 }
 
 /*end of contact section - beginning of footer*/
+
+footer{
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 0;
+    background-color: var(--cream);
+}
+
+footer img{
+    height: 150px;
+    width: 160px;
+    margin-left: 50px;
+}
+
+#footer-nav li a{
+    display: block;
+    padding: 0px 15px;
+    margin: 15px 0;
+    color: var(--darkbrown);
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--darkbrown);
+    position: relative;
+}
+
+#footer-nav li a:hover{
+    text-decoration-line: underline;
+    color: var(--medium);
+}
+
+.social-media{
+    display: flex;
+}
+
+.social-media img{
+    height: 20px;
+    width: 20px;
+    text-align: left;
+    margin: 10px 10px 5px 0;
+}
+
+.copy{
+    background-color: var(--darkbrown);
+    width: 100%;
+    height: fit-content;
+    margin: 3px 0 0 0;
+}
+
+.copy p{
+    color: var(--cream);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 300;
+    padding: 3px 0;
+}
+
+
+  
