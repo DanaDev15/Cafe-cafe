@@ -112,7 +112,7 @@ header{
     color: var(--medium);
 }
 
-/*end of top bar nav - start of hero banner*/
+/*beginning of hero banner*/
 
 #hero-banner{
     height: 90%;
@@ -122,7 +122,7 @@ header{
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: var(--medium);
+    background-color: rgba(189, 128, 92, 0.7);
 }
 
 
@@ -155,7 +155,7 @@ header{
     color: var(--darkbrown);
 }
 
-/*end of hero banner - beginning of product cards*/
+/*beginning of product cards*/
 
 .products-title{
     text-align: center;
@@ -165,6 +165,25 @@ header{
 .products-title:hover{
     text-decoration: underline;
     text-underline-offset: 15px;
+}
+
+.products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px;
+    margin: 2em 0 5em 0;
+    padding: 10px;
+    background-color: var(--medium);
+    border-radius: 10px;
 }
 
 figure{
@@ -202,30 +221,13 @@ img{
     color: var(--darkbrown);
 }
 
-.products{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
-}
 
-.card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 180px;
-    margin: 2em 0 5em 0;
-    padding: 10px;
-    background-color: var(--medium);
-    border-radius: 10px;
-}
 
-/*end of products section - beginning of reviews section*/
+/*beginning of reviews section*/
 
 
 .reviews{
-    height: 90vh;
+    height: 90%;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -269,13 +271,15 @@ img{
     border: 2px solid var(--darkbrown);
 }
 
-/*End of reviews section - beginning of roasts section*/
+/*beginning of roasts section*/
 
 
 #roasts{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    height: auto;
     width: 100%;
     padding: 50px 0;
     background-color: var(--cream);
@@ -292,7 +296,7 @@ img{
     margin-top: 5px;
     padding: 35px 0 25px 0;
     width: 80%;
-    background-color: var(--medium);
+    background-color: rgba(189, 128, 92, 0.7);
 }
 
 .roast-card:nth-of-type(2){
@@ -300,9 +304,9 @@ img{
 }
 
 .roast-card img{
-    height: 220px;
-    width: 320px;
-    margin: 0 40px;
+    height: 32%;
+    width: 42%;
+    margin: 0 2%;
 }
 
 .roast-card-content{
@@ -313,7 +317,7 @@ img{
     padding-bottom: 10px;
 }
 
-/*end of roasts section - beginning of contact*/
+/*beginning of contact section*/
 
 #contacto{
     background-color: var(--dark);
@@ -376,7 +380,7 @@ input[type="submit"]:hover{
     color: var(--cream);
 }
 
-/*end of contact section - beginning of footer*/
+/*beginning of footer*/
 
 footer{
     width: 100%;
@@ -401,7 +405,7 @@ footer img{
     text-decoration: none;
     font-size: 16px;
     color: var(--darkbrown);
-    position: relative;
+    position: inherit;
 }
 
 #footer-nav li a:hover{
@@ -420,6 +424,10 @@ footer img{
     margin: 10px 10px 5px 0;
 }
 
+.about{
+    margin-right: 10px;
+}
+
 .copy{
     background-color: var(--darkbrown);
     width: 100%;
@@ -436,4 +444,189 @@ footer img{
 }
 
 
-  
+@media only screen and (max-width: 1023px){
+ 
+    .hero-content{
+        padding: 130px 50px;
+    }
+
+    .reviews{
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .reviews-main-image{
+        display: none;
+    }
+    
+    .review-card{
+        padding: 25px;
+        align-items: center;
+    }
+
+    .review-card img{
+        height: 90px;
+        width: 90px;
+    }
+
+    .roast-card-content{
+        width: 40%;
+    }
+
+}
+
+
+@media only screen and (max-width: 768px){
+    
+    #top-nav{
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+
+    
+    img{
+        width: 180px;
+    }
+    
+    
+    .products{
+        gap: 5%;
+    }
+    
+    .card{
+        width: 150px;
+    }
+
+    .card-content h3{
+        font-size: 16px;
+    }
+
+    .card-content a{
+        font-size: 12px;
+    }
+
+
+    @media only screen and (max-width: 576px){
+
+        #hero-banner{
+            height: 85vh;
+            width: 100%;
+            text-align: center;
+            background-image: url('/images/Brown_Beige_Circle_Coffee_Shop_Logo-removebg-preview.png');
+            background-color: rgba(189, 128, 92, 0.7);
+            background-position: center;
+            background-size: 75%;
+        }
+
+        .hero-content{
+            display: none;
+        }
+
+        .products{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .products-title{
+            margin-top: 40px;
+        }
+
+        .card{
+            margin: 10px;
+        }
+
+        .card h3{
+            font-size: 20px;
+        }
+
+        .reviews-title{
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        #roasts h2{
+            padding-bottom: 20px;
+        }
+        
+        .roast-card{
+            display: flex;
+            flex-direction: column;
+
+            padding: 35px 0;
+        }
+        
+        .roast-card:nth-of-type(2){
+            flex-direction: column;
+        }
+        
+        .roast-card img{
+            height: 40%;
+            width: 50%;
+            margin: 0 2%;
+        }
+        
+        .roast-card-content{
+            width: 80%;
+        }
+        
+        .roast-card-content h2{
+            padding-bottom: 10px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .roast-card-content p{
+            font-size: 14px;
+        }
+
+        #contacto{
+            justify-content: center;
+        }
+
+        #contacto figure{
+        }        
+
+        input{
+            width: 70vw;
+        }
+        
+        textarea{
+            width: 70vw;
+        }
+        
+        input[type="submit"] {
+            font-size: 14px;
+        }
+
+        footer{
+            grid-template-rows: auto, 1fr;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        footer img{
+            height: 80px;
+            width: 85px;
+            margin: 0px 15px 20px 15px;
+        }
+        
+        #footer-nav{
+            padding: 0px 10px;
+        }
+        
+        .social-media img{
+            height: 20px;
+            width: 20px;
+            margin: 15px 10px 5px 0;
+        }
+        
+        .about{
+            margin: 25px 15px 10px 15px;
+            grid-column: 1 / span 2;
+        }
+
+        .about p{
+            font-size: 14px;
+        }    
+}
