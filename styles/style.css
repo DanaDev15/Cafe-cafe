@@ -1,25 +1,10 @@
 :root{
-    /*main color palette*/
-    --moon-mist: #DFDBCB;
-    --taupe: #4c4234;
-    --spicy-mix: #875a45;
-    --domino: #957c5b;
-
-    /*Alternatives*/
-    --lightpink: #CBBeBD;
-    --orangebrown: #6c4026;
-    --mediumlightbrown: #8a613e;
-    --graybrown: #473c38;
-    --mediumbrown: #412f26;
-    --cream: #feffed;
-
-    /*logo alternatives*/
-    --lighter: #e6d9e0;
-    --light: #d3c5bc;
-    --medium: #bd805c;
-    --medium-dark: #a75939;
-    --dark: #4e392c;
-    --darkbrown:  #140d07;
+    /*color palette*/
+    --cream: #feffed; /*keep*/
+    --lighter: #e6d9e0; /*keep*/
+    --medium: #bd805c; /*keep*/
+    --dark: #4e392c; /*keep*/
+    --darkbrown:  #140d07; /*keep*/
 }
 
 *{
@@ -28,6 +13,7 @@
     box-sizing: border-box;
     list-style: none;
     color: var(--darkbrown);
+    overflow-x: hidden;
 }
 
 
@@ -330,6 +316,7 @@ img{
 
 #contacto figure{
     height: 300px;
+    width: auto;
     margin-top: 30px;
 }
 
@@ -443,7 +430,7 @@ footer img{
     padding: 3px 0;
 }
 
-
+/*
 @media only screen and (max-width: 1023px){
  
     .hero-content{
@@ -454,10 +441,7 @@ footer img{
         grid-template-columns: 1fr;
         height: auto;
     }
-    
-    .reviews-main-image{
-        display: none;
-    }
+
     
     .review-card{
         padding: 25px;
@@ -474,9 +458,9 @@ footer img{
     }
 
 }
+*/
 
-
-@media only screen and (max-width: 768px){
+@media only screen (min-width: 600px) and (max-width: 1023px){
     
     #top-nav{
         justify-content: space-evenly;
@@ -507,14 +491,45 @@ footer img{
         font-size: 12px;
     }
 
+    .reviews{
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .reviews-main-image{
+        display: none;
+    }
+    
+    .review-card{
+        padding: 25px;
+        align-items: center;
+    }
 
-    @media only screen and (max-width: 576px){
+    .review-card img{
+        height: 90px;
+        width: 90px;
+    }
+
+    .roast-card-content{
+        width: 40%;
+    }
+
+
+}
+    @media only screen and (max-width: 599px){
+
+        #top-nav{
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            height: fit-content;
+        }
 
         #hero-banner{
             height: 85vh;
             width: 100%;
             text-align: center;
-            background-image: url('/images/Brown_Beige_Circle_Coffee_Shop_Logo-removebg-preview.png');
+            background-image: url('../images/Brown_Beige_Circle_Coffee_Shop_Logo-removebg-preview.png');
             background-color: rgba(189, 128, 92, 0.7);
             background-position: center;
             background-size: 75%;
@@ -544,6 +559,29 @@ footer img{
         .reviews-title{
             padding-bottom: 10px;
             margin-bottom: 10px;
+        }
+
+        .reviews{
+            grid-template-columns: 1fr;
+            height: auto;
+        }
+        
+        .reviews-main-image{
+            display: none;
+        }
+        
+        .review-card{
+            padding: 25px;
+            align-items: center;
+        }
+    
+        .review-card img{
+            height: 90px;
+            width: 90px;
+        }
+    
+        .roast-card-content{
+            width: 40%;
         }
 
         #roasts h2{
@@ -586,6 +624,7 @@ footer img{
         }
 
         #contacto figure{
+            display: none;
         }        
 
         input{
