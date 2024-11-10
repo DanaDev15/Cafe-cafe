@@ -86,16 +86,37 @@ header{
 }
 
 #top-nav li a{
-    display: block;
-    padding: 10px 15px;
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding-top: 10px;
+    margin: 0 15px 0 15px;
     color: var(--darkbrown);
     text-decoration: none;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 #top-nav li a:hover{
-    text-decoration-line: underline;
     color: var(--medium);
+}
+
+
+#top-nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background-color:var(--darkbrown);
+    transform: translateX(-50%);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+#top-nav li a:hover::after {
+    width: 100%;
+    background-color: var(--medium);
 }
 
 /*beginning of hero banner*/
@@ -143,15 +164,34 @@ header{
 
 /*beginning of product cards*/
 
-.products-title{
+.productos{
     text-align: center;
-    padding: 50px 0;
+    width: 100%;
 }
 
-.products-title:hover{
-    text-decoration: underline;
-    text-underline-offset: 15px;
+.products-title{
+    padding: 50px 1px 0 1px;
+    position: relative;
+    display: inline-block;
+    width: fit-content;
 }
+
+.products-title::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 0;
+height: 2px;
+background-color:var(--darkbrown);
+transform: translateX(-50%);
+transition: width 0.3s ease;
+}
+
+.products-title:hover::after {
+width: 100%;
+}
+
 
 .products{
     display: flex;
@@ -228,7 +268,7 @@ img{
 /*beginning of reviews section*/
 
 
-.reviews{
+#reviews{
     height: 90%;
     width: 100%;
     display: grid;
@@ -259,6 +299,7 @@ img{
     flex-wrap: wrap;
     background-color: var(--medium);
     justify-content: center;
+    align-items: center;
 }
 
 .review-card:nth-of-type(2){
@@ -401,20 +442,39 @@ footer img{
 }
 
 #footer-nav li a{
-    display: block;
-    padding: 0px 15px;
-    margin: 15px 0;
+    display: inline-block;
+    width: auto;
+    margin: 10px 15px;
     color: var(--darkbrown);
     text-decoration: none;
     font-size: 16px;
     color: var(--darkbrown);
-    position: inherit;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 #footer-nav li a:hover{
-    text-decoration-line: underline;
     color: var(--medium);
 }
+
+
+#footer-nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background-color:var(--darkbrown);
+    transform: translateX(-50%);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+#footer-nav li a:hover::after {
+    width: 100%;
+    background-color: var(--medium);
+}
+
 
 .social-media{
     display: flex;
@@ -451,16 +511,12 @@ footer img{
 #promo-banner{
     height: 50%;
     width: 100%;
-    background-color: var(--darkbrown);
+    background-color: var(--dark);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 }
-
-/*.promo-content{
-    padding: 130px 200px;
-}*/
 
 .promo-image img{
     height: 180px;
@@ -479,6 +535,10 @@ footer img{
     margin-bottom: 10px;
     margin-top: 0;
     padding-top: 0;
+}
+
+.promo-content{
+    text-align: center;
 }
 
 
@@ -517,7 +577,7 @@ footer img{
         font-size: 12px;
     }
 
-    .reviews{
+    #reviews{
         grid-template-columns: 1fr;
         height: auto;
     }
@@ -540,6 +600,13 @@ footer img{
         width: 40%;
     }
 
+    #promo-banner{
+        justify-content: center;
+    }
+
+    .promo-content{
+        text-align: center;
+    }
 
 }
     @media only screen and (max-width: 599px){
@@ -591,7 +658,7 @@ footer img{
             margin-bottom: 10px;
         }
 
-        .reviews{
+        #reviews{
             grid-template-columns: 1fr;
             height: auto;
         }
@@ -667,6 +734,14 @@ footer img{
         
         input[type="submit"] {
             font-size: 14px;
+        }
+
+        #promo-banner{
+            justify-content: center;
+        }
+    
+        .promo-content{
+            text-align: center;
         }
 
         footer{
