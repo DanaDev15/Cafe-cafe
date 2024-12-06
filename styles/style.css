@@ -13,7 +13,7 @@
     box-sizing: border-box;
     list-style: none;
     color: var(--darkbrown);
-    overflow-x: hidden;
+    overflow-x: none;
 }
 
 
@@ -59,6 +59,67 @@ header{
 
 /*top nav bar*/
 
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    align-content: center;
+    z-index: 1030;
+    width: 100%;
+}
+
+
+.navbar-brand .logo {
+    height: auto;
+    max-height: 45px;
+    width: auto;
+    margin-left: 25px;
+}
+
+
+.bg-custom {
+    background-color: var(--cream);
+}
+
+.navbar-toggler{
+    border: 0px;
+}
+
+
+.navbar-nav .nav-link {
+    color: var(--darkbrown) !important;
+    font-size: 16px;
+    padding: 5px 0px;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.navbar-collapse{
+    justify-content: flex-end;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--medium);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--darkbrown);
+    transform: translateX(-50%);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    background-color: var(--medium);
+}
+
+/*
 #top-nav{
     color: var(--dark);
     display: flex;
@@ -117,7 +178,7 @@ header{
 #top-nav li a:hover::after {
     width: 100%;
     background-color: var(--medium);
-}
+}*/
 
 /*beginning of hero banner*/
 
@@ -201,10 +262,6 @@ width: 100%;
     gap: 10%;
 }
 
-.break {
-    flex-basis: 100%;
-    height: 0;
-  }
 
 .card{
     display: flex;
@@ -212,7 +269,7 @@ width: 100%;
     align-items: center;
     text-align: center;
     width: 190px;
-    height: 250px;
+    height: auto;
     margin: 2em 0 5em 0;
     padding: 5px;
     background-color: var(--medium);
@@ -233,7 +290,7 @@ img{
 }
 
 .card-content{
-    padding: 0.8em;
+    padding: 0.5em;
     display: flex;
     flex-direction: column;
     justify-items: flex-end;
@@ -244,25 +301,59 @@ img{
 .card-content h3{
     font-weight: normal;
     margin-top: 0;
-    margin-bottom: .5em;
+    margin-bottom: .3em;
     overflow: hidden;
 }
 
-.card-content a{
+.card-content p.product-price{
+    padding: 0;
+    margin: 0;
+}
+
+
+.card-content button.buy-btn{
     background-color: var(--darkbrown);
     color: var(--cream);
     text-decoration: none;
     padding: 5px 15px;
+    margin-top: 8px;
     border-radius: 20px;
+    border: none;
     font-size: small;
     overflow: hidden;
+    font-family: "poppins", sans-serif;
+    font-size: 13px;
 }
 
-.card-content a:hover{
+.card-content button.buy-btn:hover{
     background-color: var(--cream);
     color: var(--darkbrown);
 }
 
+.card-content button.description-btn{
+    background-color: inherit;
+    font-family: "poppins", sans-serif;
+    font-size: 13px;
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border: none;
+}
+
+.card-content button.description-btn:hover{
+    color: var(--cream);
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.card-content p.card-description{
+    display: none;
+    text-align: left;
+    font-size: 13px;
+    padding-top: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
 
 /*beginning of reviews section*/
@@ -548,13 +639,6 @@ footer img{
         overflow-x: hidden;
     }
 
-    #top-nav{
-        justify-content: space-evenly;
-        align-items: center;
-        flex-wrap: wrap;
-        height: fit-content;
-    }
-
     
     img{
         width: 180px;
@@ -609,18 +693,22 @@ footer img{
     }
 
 }
+
+
     @media only screen and (max-width: 599px){
 
         body{
             overflow-x: hidden;
         }
 
-        #top-nav{
+        /*#top-nav{
             justify-content: space-evenly;
             align-items: center;
             flex-wrap: wrap;
             height: fit-content;
-        }
+        }*/
+
+
 
         #hero-banner{
             height: 80vh;
