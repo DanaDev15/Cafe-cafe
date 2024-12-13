@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-custom sticky-top">
+        <nav class="navbar navbar-expand-lg bg-custom fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="images/line-logo.png" alt="Cafe cafe" class="logo">
@@ -27,14 +27,36 @@
                     <a class="nav-link" href="pages/productos.html">Productos</a>
                     <a class="nav-link" href="index.html#reviews">Reviews</a>
                     <a class="nav-link" href="index.html#contacto">Contacto</a>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                        Toggle static offcanvas
-                      </button>
+                    <div class="sum-prices">
+                        <button class="btn cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            <img src="images/shopping-cart.png" alt="bag" class="bag-icon">
+                        </button>
+                    </div>
                 </div>
               </div>
             </div>
           </nav>
-
+          <div class="offcanvas offcanvas-end carrito" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+              <h3 class="offcanvas-title" id="staticBackdropLabel">Tu Carrito</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p class="empty">Tu carrito está vacío :(</p>
+                <ul id="buyItems">
+                    <!-- <li class="buyItem">
+						<img src="img/latte.png">
+						<div>
+							<h5>Product Name</h5>
+							<h6>Price</h6>
+							<p>Total: $<span id="total-carrito">0</span></p>
+						</div>
+					</li> -->
+                </ul>
+                <div>Total: $<span id="total-carrito">0</span></div>
+                <button class="btn checkout hidden">Check out</button>
+            </div>
+          </div>
         
         <section id="hero-banner">
             <div class="hero-content">
@@ -49,39 +71,39 @@
         <h2 class="products-title">Escoje Tu Café</h2>
         <div class="products">
             <article class="card" data-id="1" data-category="coffee">
-                <figure>
+                <figure class="product-image">
                     <img src="images/latte.png" alt="watercolor latte coffee cup">
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Latte</h3>
-                    <p class="product-price">$3000</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">3000</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="latte">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
             </article>
     
             <article class="card" data-id="2" data-category="coffee">
-                <figure>
+                <figure class="product-image">
                     <img src="images/flatwhite.png" alt="watercolor flat white coffee cup">
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Flat White</h3>
-                    <p class="product-price">$3500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">3500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Flat White">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
             </article>
     
             <article class="card" data-id="3" data-category="coffee">
-                <figure>
+                <figure class="product-image">
                     <img src="images/capuccino.png" alt="watercolor capuccino coffee cup">
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Capuccino</h3>
-                    <p class="product-price">$3500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">3500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Capuccino">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
