@@ -46,18 +46,30 @@
                 <ul id="buyItems">
                 </ul>
                 <div>Total: $<span id="total-carrito">0</span></div>
-                <button class="btn checkout hidden">Check out</button>
+                <button onclick="mostrarCheckout()" class="btn checkout hidden">Checkout</button>
             </div>
           </div>
 
-        <section id="hero-banner">
-            <div class="hero-content">
+        <section class="hero-banner" id="hero-products">
+            <div class="hero-content" id="hero-content-products">
                 <h1>Productos</h1>
                 <p>Es un gran día para tomar café</p><br>
                 <a href="#productos-products">Comprar</a>
             </div>
         </section>
     </header>
+
+    <div id="checkout-modal">
+        <div class="checkout-content">
+            <h2>Finalizar compra</h2>
+            <div id="purchase-summary">
+                <ul id="modal-product-list"></ul>
+                <p><strong>Total a Pagar: $<span id="modal-total">0</span></strong></p>
+            </div>
+            <button onclick="realizarCompra()" id="confirm-purchase-btn">Confirmar Compra</button>
+            <button onclick="cerrarCheckout()" id="cancel-checkout-btn">Cancelar</button>
+        </div>
+    </div>
 
     <section id="productos-products" class="productos">
         <h2 class="products-title">Café Caliente</h2>

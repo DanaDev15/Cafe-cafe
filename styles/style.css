@@ -358,7 +358,7 @@ p .qty{
 
 /*beginning of hero banner*/
 
-#hero-banner{
+.hero-banner{
     height: 90%;
     width: 100%;
     background-image: url("../images/serving.png");
@@ -375,7 +375,7 @@ p .qty{
 }
 
 
-#hero-banner p{
+.hero-banner p{
     font-size: large;
     border-top: 0;
     color: var(--cream);
@@ -384,7 +384,7 @@ p .qty{
     padding-top: 0;
 }
 
-#hero-banner a{
+.hero-banner a{
     width: fit-content;
     display: block;
     padding: 5px 15px;
@@ -394,7 +394,7 @@ p .qty{
     text-decoration: none;
 }
 
-#hero-banner a:hover{
+.hero-banner a:hover{
     background-color: var(--cream);
     color: var(--darkbrown);
 }
@@ -891,6 +891,22 @@ footer img{
 
         .hero-content{
             display: none;
+        }
+
+        #hero-products{
+            height: 80vh;
+            width: 100%;
+            background-color: rgba(189, 128, 92, 0.7);
+            background-size: 80%;
+            background-image: none;
+        }
+
+        #hero-content-products{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 0;
         }
 
         .products{
