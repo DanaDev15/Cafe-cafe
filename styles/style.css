@@ -879,7 +879,7 @@ footer img{
         }
 
 
-        #hero-banner{
+        .hero-banner{
             height: 80vh;
             width: 100%;
             background-image: url('../images/Brown_Beige_Circle_Coffee_Shop_Logo-removebg-preview.png');
@@ -894,7 +894,7 @@ footer img{
         }
 
         #hero-products{
-            height: 80vh;
+            height: 65vh;
             width: 100%;
             background-color: rgba(189, 128, 92, 0.7);
             background-size: 80%;
