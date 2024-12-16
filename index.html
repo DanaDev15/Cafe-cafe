@@ -44,17 +44,9 @@
             <div class="offcanvas-body">
                 <p class="empty">Tu carrito está vacío :(</p>
                 <ul id="buyItems">
-                    <!-- <li class="buyItem">
-						<img src="img/latte.png">
-						<div>
-							<h5>Product Name</h5>
-							<h6>Price</h6>
-							<p>Total: $<span id="total-carrito">0</span></p>
-						</div>
-					</li> -->
                 </ul>
                 <div>Total: $<span id="total-carrito">0</span></div>
-                <button class="btn checkout hidden">Check out</button>
+                <button onclick="mostrarCheckout()" class="btn checkout hidden">Checkout</button>
             </div>
           </div>
         
@@ -66,6 +58,22 @@
             </div>
         </section>
     </header>
+
+    <div id="checkout-modal">
+        <div class="checkout-content">
+            <h2>Finalizar compra</h2>
+            <div id="purchase-summary">
+                <ul id="modal-product-list"></ul>
+                <p><strong>Total a Pagar: $<span id="modal-total">0</span></strong></p>
+            </div>
+            <button onclick="realizarCompra()" id="confirm-purchase-btn">Confirmar Compra</button>
+            <button onclick="cerrarCheckout()" id="cancel-checkout-btn">Cancelar</button>
+        </div>
+        <div id="thank-you">
+            <img src="images/heart.png" alt="coffee heart">
+            <h2>¡Tu Cafecito ya está en camino!</h2>
+        </div>
+    </div>
 
     <section  id="hp-products" class="productos">
         <h2 class="products-title">Escoje Tu Café</h2>

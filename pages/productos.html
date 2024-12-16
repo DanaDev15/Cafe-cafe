@@ -27,10 +27,28 @@
                     <a class="nav-link active" aria-current="page" href="#">Productos</a>
                     <a class="nav-link" href="../index.html#reviews">Reviews</a>
                     <a class="nav-link" href="../index.html#contacto">Contacto</a>
+                    <div class="sum-prices">
+                        <button class="btn cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            <img src="../images/shopping-cart.png" alt="bag" class="bag-icon">
+                        </button>
+                    </div>
                 </div>
               </div>
             </div>
           </nav>
+          <div class="offcanvas offcanvas-end carrito" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+              <h3 class="offcanvas-title" id="staticBackdropLabel">Tu Carrito</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p class="empty">Tu carrito está vacío :(</p>
+                <ul id="buyItems">
+                </ul>
+                <div>Total: $<span id="total-carrito">0</span></div>
+                <button class="btn checkout hidden">Check out</button>
+            </div>
+          </div>
 
         <section id="hero-banner">
             <div class="hero-content">
@@ -50,8 +68,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Latte</h3>
-                    <p class="product-price">$3000</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">3000</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="latte">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -63,8 +81,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Flat White</h3>
-                    <p class="product-price">$3500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">3500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Flat White">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -76,8 +94,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Capuccino</h3>
-                    <p class="product-price">$3500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">3500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Capuccino">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -94,8 +112,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Frapuccino</h3>
-                    <p class="product-price">$4000</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">4000</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Frapuccino">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -107,8 +125,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Iced Coffee</h3>
-                    <p class="product-price">$4500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">4500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Iced Coffee">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -120,8 +138,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Iced Latte</h3>
-                    <p class="product-price">$4500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">4500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Iced Latte">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -138,8 +156,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Cinammon Roll</h3>
-                    <p class="product-price">$2000</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">2000</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Cinammon Roll">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -151,8 +169,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Muffin</h3>
-                    <p class="product-price">$1500</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">1500</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Muffin">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>
@@ -164,8 +182,8 @@
                 </figure>
                 <div class="card-content">
                     <h3 class="product-name">Croissant</h3>
-                    <p class="product-price">$1000</p>
-                    <button class="buy-btn">Comprar</button>
+                    <p class="price">$<span class="product-price">1000</span></p>
+                    <button class="buy-btn add-to-cart-btn" data-product-key="Croissant">Comprar</button>
                     <button class="description-btn">más info</button>
                     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio beatae quisquam recusandae deleniti accusamus suscipit soluta temporibus! Autem, eveniet!</p>
                 </div>

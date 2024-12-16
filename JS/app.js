@@ -1,4 +1,4 @@
-// 1. Product Array and JSON Logging (unchanged from before)
+
 const products = document.querySelectorAll('.card');
 
 const productArray = Array.from(products).map(product => {
@@ -14,66 +14,61 @@ const productArray = Array.from(products).map(product => {
 function logProductArrayAsJSON() {
   console.log(JSON.stringify(productArray, null, 2));
 }
-logProductArrayAsJSON(); // Log the product array as JSON to console
+logProductArrayAsJSON();
 
-// 2. Cart Drawer Trigger
-const buyButtons = document.querySelectorAll('.add-to-cart-btn'); // Select all "buy" buttons
-const cartItemsContainer = document.getElementById('buyItems'); // Container for cart items
-const totalPriceElement = document.getElementById('total-carrito'); // Element to display total price
-const emptyCartMessage = document.querySelector('.empty'); // Empty cart message element
 
-let cart = []; // Cart array to hold products
-let total = 0; // Variable to track the total price
+const buyButtons = document.querySelectorAll('.add-to-cart-btn'); 
+const cartItemsContainer = document.getElementById('buyItems'); 
+const totalPriceElement = document.getElementById('total-carrito');
+const emptyCartMessage = document.querySelector('.empty');
 
-// Add event listener to each "buy" button
+let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+let total = parseFloat(localStorage.getItem('total')) || 0; 
+
+renderCart()
+
 buyButtons.forEach(button => {
   button.addEventListener('click', () => {
     const productKey = button.getAttribute('data-product-key');
     const product = productArray.find(p => p.name.toLowerCase() === productKey.toLowerCase()); // Get the product by name
 
-    // Check if product is already in the cart
     const existingProduct = cart.find(item => item.name === product.name);
 
     if (existingProduct) {
-      // If the product is already in the cart, increase the quantity and update total
       existingProduct.quantity += 1;
     } else {
-      // If the product is not in the cart, add it with quantity 1
-      product.quantity = 1; // Set initial quantity
+      product.quantity = 1;
       cart.push(product);
     }
 
-    // Update the total price
     total += product.price;
 
-    // Update cart display
-    renderCart();
+    saveCartState();
 
-    // Trigger the Bootstrap offcanvas to open when the "buy" button is clicked
+    renderCart();
     const cartDrawer = new bootstrap.Offcanvas(document.getElementById('staticBackdrop'));
-    cartDrawer.show(); // Show the cart drawer
+    cartDrawer.show();
   });
 });
 
-// 3. Render the cart and update the display
 function renderCart() {
-  // Clear current cart items (to avoid leftover products)
   cartItemsContainer.innerHTML = ''; 
 
-  // Debug log for cart length
   console.log('Cart Length:', cart.length);
 
-  // If the cart is empty, show the empty cart message
+  const checkoutButton = document.querySelector('.checkout');
+
   if (cart.length === 0) {
-    console.log('Cart is empty, showing empty message');
-    emptyCartMessage.style.display = 'block'; // Show empty cart message
-    totalPriceElement.textContent = '0'; // Reset total to 0
+    emptyCartMessage.style.display = 'block'; 
+    totalPriceElement.textContent = '0'; 
+    checkoutButton.classList.add('hidden');
+    localStorage.setItem('total', '0.00');
+
   } else {
-    console.log('Cart has items, hiding empty message');
-    emptyCartMessage.style.display = 'none'; // Hide empty cart message
+    emptyCartMessage.style.display = 'none'; 
+    checkoutButton.classList.remove('hidden');
   }
 
-  // Loop through each product in the cart and display it
   cart.forEach(product => {
     const li = document.createElement('li');
     li.classList.add('buyItem');
@@ -84,57 +79,107 @@ function renderCart() {
       </div>
       <br>
       <div id="qty-buttons">
-        <button class="mas">+</button><p class="qty">${product.quantity}</p><button class="menos">-</button>
+        <button class="mas">+ </button><p class="qty">${product.quantity}</p><button class="menos"> -</button>
       </div>
     `;
 
-    // Add event listener to "+" button to increase the quantity
     li.querySelector('.mas').addEventListener('click', () => {
       product.quantity += 1;
-      total += product.price; // Add product price to total
-      renderCart(); // Re-render the cart to update the quantity and total
+      total += product.price; 
+      saveCartState();
+      renderCart(); 
     });
 
-    // Add event listener to "-" button to decrease the quantity
     li.querySelector('.menos').addEventListener('click', () => {
-      if (product.quantity > 1) { // Prevent quantity from going below 1
+      if (product.quantity > 1) { 
         product.quantity -= 1;
-        total -= product.price; // Subtract product price from total
-        renderCart(); // Re-render the cart to update the quantity and total
+        total -= product.price;
+        saveCartState();
+        renderCart(); 
       } else if (product.quantity === 1) {
-        // Remove product from cart if quantity is 0
-        cart = cart.filter(item => item.name !== product.name); // Remove product from cart
-        total -= product.price; // Subtract the product price from total
-        renderCart(); // Re-render the cart to reflect removal and updated total
+
+        cart = cart.filter(item => item.name !== product.name); 
+        total -= product.price; 
+        saveCartState();
+        renderCart();
       }
     });
 
-    // Append item to the cart
     cartItemsContainer.appendChild(li);
   });
 
-  // Update the total price in the total element
-  totalPriceElement.textContent = total.toFixed(0); // Update the total price
+  totalPriceElement.textContent = total.toFixed(0); 
+}
+
+function saveCartState() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('total', total.toFixed(2));
+}
+
+function mostrarCheckout() {
+  const carrito = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if (carrito.length === 0) {
+    checkoutButton.classList.add('hidden');
+    return;
+  }
+
+  const modal = document.getElementById('checkout-modal');
+  modal.style.display = 'flex';
+
+  const modalProductList = document.getElementById('modal-product-list');
+  modalProductList.innerHTML = '';
+
+  carrito.forEach(product => {
+    const li = document.createElement('li');
+    li.textContent = `${product.name} - $${product.price} x ${product.quantity}`;
+    modalProductList.appendChild(li);
+  });
+
+  const modalTotal = document.getElementById('modal-total');
+  const total = carrito.reduce((acc, product) => acc + product.price * product.quantity, 0);
+  modalTotal.textContent = total.toFixed(2);
+}
+
+function cerrarCheckout() {
+  const modal = document.getElementById('checkout-modal');
+  modal.style.display = 'none';
+
+  renderCart();
+}
+
+function realizarCompra() {
+  alert('Gracias por su compra');
+
+  localStorage.removeItem('cart');
+  localStorage.removeItem('total');
+  sessionStorage.clear();
+
+  cart = [];
+  total = 0;
+
+  renderCart();
+  cerrarCheckout();
 }
 
 
-// 4. See More Button Functionality (unchanged)
+
+
 const descriptionButtons = document.querySelectorAll('.description-btn');
 
 descriptionButtons.forEach(button => {
   button.addEventListener('click', () => {
     const cardDescription = button.closest('.card-content').querySelector('.card-description');
     
-    // Toggle visibility of the description text
     if (cardDescription.style.display === 'none' || !cardDescription.style.display) {
       cardDescription.style.display = 'block';
       cardDescription.style.opacity = '1';
-      button.textContent = 'menos info'; // Change text to "less info"
+      button.textContent = 'menos info'; 
     } else {
       cardDescription.style.opacity = '0';
       setTimeout(() => {
         cardDescription.style.display = 'none';
-        button.textContent = 'más info'; // Change text to "more info"
+        button.textContent = 'más info'; 
       }, 100);
     }
   });
